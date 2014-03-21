@@ -9,7 +9,7 @@
 var app = angular.module('marvelApp');
 
 app.service('Comic', ['$resource', function($resource){
-    var route = "http://gateway.marvel.com/v1/public/creators";
+    var route = "http://gateway.marvel.com/v1/public/comics";
     var params = "?apikey=7d71d8709c298336f559d4acd2e61570&ts=1&hash=16d6f37c9bb162000721b8717503df61";
 
     var r = route + params;
@@ -17,8 +17,8 @@ app.service('Comic', ['$resource', function($resource){
         query: function() {
             var deferred = Q.defer();
 
-            $resource(route + params, {}, {request: {method: "JSONP"}}).request({limit:15}
-            , function(data) {
+            $resource(route + params, {}).get({limit:15}
+            ,function(data) {
                 deferred.resolve(data);
             }, function(reason){
            
