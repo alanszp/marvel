@@ -8,6 +8,7 @@ module.exports = function(config){
       'test/lib/angular/angular-mocks.js',
       'app/js/**/*.js',
       'test/unit/**/*.js',
+      'app/bower_components/q/q2.js'
     ],
       
     exclude : [
