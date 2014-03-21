@@ -2,10 +2,12 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', [function() {
+var controllers = angular.module('marvelApp.controllers', ["marvelApp.services"]);
+  controllers.controller('MyCtrl1', ["$scope", "Comic", function($scope, Comic) {
+	var response = Comic.query(); 
+	$scope.comics = response.data.results;
+  }]);
 
-  }])
-  .controller('MyCtrl2', [function() {
+  controllers.controller('MyCtrl2', [function() {
 
   }]);
